@@ -1,12 +1,12 @@
 ---
 layout: home
-permalink: /network/
-title: COP26 Retweet Network
+permalink: /climate/
+title: COP26 General Climate Network
 head_js:
  - "https://unpkg.com/force-graph"
 body_js:
- - "/assets/data/retweets.js"
- - "/assets/src/network.js"
+ - "/assets/data/climate.js"
+ - "/assets/src/climate_net.js"
  - "https://platform.twitter.com/widgets.js"
 ---
 
