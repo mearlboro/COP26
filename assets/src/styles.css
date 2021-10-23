@@ -113,8 +113,19 @@ div.tooltip {
     height: calc(100vh - 140px);
 }
 
+.controls {
+    z-index: 100;
+    position: absolute;
+    top: 130px;
+    left: 3px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.8);
+    text-align: left;
+    padding: 10px 5px;
+}
+
 #panel {
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     top: 130px;
     right: 0px;
@@ -168,3 +179,4 @@ div.tooltip {
 .node--leaf {
   pointer-events: none;
 }
+
