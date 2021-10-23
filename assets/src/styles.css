@@ -90,7 +90,7 @@ img {
     }
 }
 
-/* dashboard & network */
+/* visualisations */
 #map, #cloud {
     display: block;
     width: calc(max(1200, 100vw));
@@ -145,7 +145,26 @@ div.tooltip {
     font-size: 12px;
 }
 
-/*#panel_content iframe {
-    max-height: calc(100vh - 400px);
-    overflow-y: scroll;
-}*/
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label {
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
