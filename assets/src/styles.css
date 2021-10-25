@@ -154,7 +154,7 @@ div.tooltip {
   stroke-width: 1px;
 }
 .node--leaf {
-  fill: white;
+  fill: rgb(255, 203, 43);
 }
 .node--leaf .label {
   display: inline;
@@ -162,6 +162,15 @@ div.tooltip {
   font-size: 10px;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 }
+
+#table {
+  border: 1px solid rgba(0,0,0,0.2);
+  margin-right: 6px;
+}
+#table > p {
+  display: none;
+}
+
 
 /* Hashtags page */
 .green { color: #1b9e77; }
