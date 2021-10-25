@@ -4,6 +4,7 @@ title: COP26 Communities Visualisation
 permalink: /visualisation/communities
 body_js:
     - "https://d3js.org/d3.v4.js"
+    - "https://d3js.org/d3-scale-chromatic.v1.min.js"
     - "/assets/js/communities.js"
 ---
 

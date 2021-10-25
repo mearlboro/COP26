@@ -3,6 +3,8 @@ layout: home
 permalink: /
 title: COP26 Retweet Network
 head_js:
+ - "https://d3js.org/d3.v4.min.js"
+ - "https://d3js.org/d3-scale-chromatic.v1.min.js"
  - "https://unpkg.com/force-graph"
 body_js:
  - "/assets/data/retweets_150.js"

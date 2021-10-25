@@ -1,23 +1,3 @@
-var cols = [];
-var GetCol = function(group) {
-    if (cols[group]) {
-        return cols[group];
-    }
-    else {
-        var r = Math.floor((Math.random() * 245));
-        var g = Math.floor((Math.random() * 245));
-        var b = Math.floor((Math.random() * 245));
-        var brightness = Math.sqrt(r^2 + g^2 + b^2)
-        while (brightness > 255) {
-            r = Math.floor((Math.random() * 245));
-            g = Math.floor((Math.random() * 245));
-            b = Math.floor((Math.random() * 245));
-            brightness = Math.sqrt(r^2 + g^2 + b^2)
-        }
-        cols[group] = "rgba(" + r + "," + g + "," + b + ", 1)";
-        return cols[group];
-    }
-}
 
 var GetNetwork = function(size, live) {
     if (live) {
@@ -109,16 +89,17 @@ var GetHelp = function() {
 
 var LoadNetwork = function(size, live) {
     data = GetNetwork(size, live);
+    scale = d3.scaleOrdinal(d3.schemeDark2);
 
     const Graph = ForceGraph()(
       document.getElementById("graph"))
         .graphData(data)
         .backgroundColor("#ffffff")
         .zoom(0.6)
-        .width(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 100)
+        .width(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 40)
         .height(Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 140)
         // configure nodes
-        .nodeColor(n => GetCol(n.group))
+        .nodeColor(n => scale(n.group))
         .nodeVal(n => n.value * 4000.0)
         // configure links, particles travelling links indicate link direction
         .linkCurvature(.2)
@@ -151,7 +132,6 @@ var LoadNetwork = function(size, live) {
     Graph.d3VelocityDecay(0.1)
 
     ClosePanel();
-
 }
 
 LoadNetwork(150, false);
