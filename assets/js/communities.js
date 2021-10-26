@@ -38,16 +38,17 @@ var LoadEgo = (function(username) {
       return;
     }
 
-    var size = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20;
+    var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20,
+        height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 200;
 
     var elem = document.querySelector('#graph')
-    elem.setAttribute("style", "width:"  + size + "px");
-    elem.setAttribute("style", "height:" + size + "px");
+    elem.setAttribute("style", "width:"  + width  + "px");
+    elem.setAttribute("style", "height:" + height + "px");
     const Graph = ForceGraph()(elem)
         .graphData(data)
         .backgroundColor("#ffffff")
-        .width(size)
-        .height(size)
+        .width(width)
+        .height(height)
         // configure nodes
         .nodeColor(n => scale(n.group[1]))
         .nodeVal(n => n.value * 100000.0)
@@ -86,7 +87,7 @@ var LoadEgo = (function(username) {
 var UserSearch = (function(newPage) {
     var user = document.querySelector('input').value
     if (newPage) {
-        window.open('/visualisation/communities_ego#' + user)
+        window.open('/visualisation/communities_search#' + user)
     }
     else {
         LoadEgo(user)
@@ -98,14 +99,23 @@ var LuckySearch = (function(newPage) {
         '@ExtinctionR', '@BBCNews' ]
     var rand = Math.floor(Math.random() * users.length);
     if (newPage) {
-        window.open('/visualisation/communities_ego#' + users[rand])
+        window.open('/visualisation/communities_search#' + users[rand])
     }
     else {
         LoadEgo(users[rand]);
     }
 });
 
-var Draw = (function() {
+var LoadNet = function() {
+    var url  = document.URL;
+    var user = url.split('#')[1];
+    if (!user) return;
+
+    document.getElementById('username').value = user;
+    UserSearch(0);
+}
+
+var DrawCircles = (function() {
   var svg = d3.select("#circles");
 
   if (!svg) return;
@@ -135,6 +145,7 @@ var Draw = (function() {
 
     var circle = g.selectAll("circle").data(nodes)
       .enter().append("circle")
+      .attr("pointer-events", d => !d.children ? "none" : null)
       .attr("class", d => d.parent ? d.children ? "node" : "node node--leaf" : "node node--root")
       .style("fill", d => d.children ? color(d.depth - 1) : null)
       .on("click",   d => { if (focus !== d) zoom(d), d3.event.stopPropagation() } );
@@ -142,7 +153,7 @@ var Draw = (function() {
     var text = g.selectAll("text").data(nodes)
       .enter().append("text")
       .attr("class", "label")
-      .style("display", d => d.parent === root  ? "inline" : "none")
+      .style("display", d => focus === root || focus.parent === root ? "none" : "inline")
       .text(d => { return isNaN(d.data.name) ? "@" + d.data.name : "" });
 
     var node = g.selectAll("circle,text");
@@ -163,8 +174,14 @@ var Draw = (function() {
 
       transition.selectAll("text")
         .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
-          .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-          .on("end", function(d) { if (focus === root || focus.parent === root) this.style.display = "none"; });
+          .on("start", function(d) {
+                if (focus === root || focus.parent === root) this.style.display = "none";
+                else this.style.display = "inline";
+          })
+          .on("end", function(d) {
+                if (focus === root || focus.parent === root) this.style.display = "none";
+                else this.style.display = "inline";
+          });
     }
 
     function zoomTo(v) {
@@ -175,14 +192,5 @@ var Draw = (function() {
   });
 });
 
-var Load = function() {
-    var url  = document.URL;
-    var user = url.split('#')[1];
-    if (!user) return;
-
-    document.getElementById('username').value = user;
-    UserSearch(0);
-}
-
-Draw();
-Load();
+DrawCircles();
+LoadNet();

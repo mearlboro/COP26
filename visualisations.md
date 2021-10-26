@@ -4,10 +4,11 @@ title: COP26 Visualisations
 permalink: /visualisations/
 ---
 
-<div class="flexi flexi-5">
-<div><a href="/"                          ><img src="/assets/img/network_viz.png">  <br/>Retweet network</a></div>
-<div><a href="/visualisation/geographical"><img src="/assets/img/geography_viz.png"><br/>Geographical</a></div>
-<div><a href="/visualisation/hashtags"    ><img src="/assets/img/hashtag_viz.png">  <br/>Hashtags</a></div>
-<div><a href="/visualisation/communities" ><img src="/assets/img/community_viz.png"><br/>Communities</a></div>
-<div><a href="/visualisation/trends"      ><img src="/assets/img/trends_viz.png">   <br/>Trends</a></div>
+<div class="flexi flexi-4">
+<div><a href="/"                                ><img src="/assets/img/network_viz.png">  <br/>Retweet network</a></div>
+<div><a href="/visualisation/geographical"      ><img src="/assets/img/geography_viz.png"><br/>Geographical</a></div>
+<div><a href="/visualisation/hashtags"          ><img src="/assets/img/hashtag_viz.png">  <br/>Hashtags</a></div>
+<div><a href="/visualisation/communities"       ><img src="/assets/img/community_viz.png"><br/>Communities</a></div>
+<div><a href="/visualisation/communities_search"><img src="/assets/img/ego_viz.png">      <br/>User networks</a></div>
+<div><a href="/visualisation/trends"            ><img src="/assets/img/trends_viz.png">   <br/>Trends</a></div>
 </div>

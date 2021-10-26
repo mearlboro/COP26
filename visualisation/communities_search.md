@@ -1,7 +1,7 @@
 ---
 layout: home
-title: COP26 Communities Ego Networks
-permalink: /visualisation/communities_ego
+title: COP26 Community User Networks
+permalink: /visualisation/communities_search
 head_js:
     - "https://d3js.org/d3.v4.min.js"
     - "https://d3js.org/d3-scale-chromatic.v1.min.js"
