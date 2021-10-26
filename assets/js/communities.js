@@ -76,7 +76,7 @@ var LoadEgo = (function(username) {
           node.fy = node.y;
         })
         // show panel on node click
-        .onNodeClick(n => window.open("https://twitter.com/" + n.name.text.slice(1) ));
+        .onNodeClick(n => window.open("https://twitter.com/" + n.name.slice(1) ));
 
     // Spread nodes a little wider
     Graph.d3Force("charge").strength(-900);
