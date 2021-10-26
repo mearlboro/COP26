@@ -11,6 +11,10 @@ body_js:
     - "/assets/js/communities.js"
 ---
 
+The user network shows the neighbours of and interactions between the neighbours of a single chosen user.
+
+Search for a user by typing @username into the search box. Need inspiration? Hit I'm feeling lucky.
+
 Search for a user: <input type="text" id="username" value="@username">
 <button id="search" onclick="UserSearch(0)" >Search</button>
 <button if="lucky"  onclick="LuckySearch(0)">I'm feeling lucky</button>
