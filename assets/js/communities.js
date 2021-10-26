@@ -96,7 +96,9 @@ var UserSearch = (function(newPage) {
 
 var LuckySearch = (function(newPage) {
     var users = [ '@CarolineLucas', '@NetZeroWatch', '@GretaThunberg',
-        '@ExtinctionR', '@BBCNews' ]
+        '@ExtinctionR', '@BBCNews' , '@NicolaSturgeon', '@RogerHelmerMEP', '@MarkJCarney', '@ClimateRealists',
+        '@Ed_Miliband', '@vonderleyen', '@trussliz', '@EU_Commission', '@Pontifex', '@Jess_Shankleman',
+        '@novaramedia', '@friends_earth']
     var rand = Math.floor(Math.random() * users.length);
     if (newPage) {
         window.open('/visualisation/communities_search#' + users[rand])
