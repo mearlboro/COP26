@@ -11,20 +11,15 @@ body_js:
     - "/assets/data/ego_network.js"
 ---
 
-<p class="small">Click on each coloured circle to explore community members. Click on a white circle to zoom out.</p>
+<p class="small">Click on each coloured circle to explore community members. Click on a yellow circle to zoom out.</p>
 
 <svg id="circles"></svg>
 Search for a user: <input type="text" id="username" value="@username">
-<button id="search" onclick="UserSearch()" >Search</button>
-<button if="lucky"  onclick="LuckySearch()">I'm feeling lucky</button>
+<button id="search" onclick="UserSearch(1)" >Search</button>
+<button if="lucky"  onclick="LuckySearch(1)">I'm feeling lucky</button>
 <p id="message"></p>
 
-<div class="flexi flexi-2">
-  <div id="table">
-	<p>Users in the same community. Hierarchy level:</p>
-  </div>
-  <div id="graph"></div>
-</div>
+<div id="graph"></div>
 
 
 ## About this visualisation

@@ -1,4 +1,6 @@
-Draw = (function() {
+"use strict";
+
+var Draw = (function() {
 
   var mapData = d3.map();
   d3.queue()

@@ -1,6 +1,6 @@
 "use strict";
 
-var GetData = (function(username, level) {
+var GetData = (function(username) {
     var root = graph_data['nodes'].filter(
       n => n.name.toLowerCase() === username.toLowerCase())[0];
     if (!root) return 0;
@@ -18,19 +18,15 @@ var GetData = (function(username, level) {
 
     var nodes = graph_data['nodes'].filter(n => dir_ids.includes(n.id) || id === n.id);
 
-    var community_filt = nodes.filter(n => n['group'][level] === root['group'][level])
-      .map(n => n.name)
-
     var data = {
         'nodes': nodes,
         'links': dir_links.concat(indir_links),
-        'table': community_filt
     };
     return(data);
 });
 
-var LoadEgo = (function(username, level) {
-    var data = GetData(username, level),
+var LoadEgo = (function(username) {
+    var data = GetData(username),
         scale = d3.scaleOrdinal(d3.schemeDark2);
 
     if (!data) {
@@ -42,31 +38,18 @@ var LoadEgo = (function(username, level) {
       return;
     }
 
-    var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-        size = (width > 600) ? (width/ 2 - 10) : (width - 20);
+    var size = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20;
 
-    var elem = document.querySelector('#table')
-    elem.setAttribute("style", "width:"  + size + "px");
-    elem.setAttribute("style", "height:" + size + "px");
-    var elem = document.querySelector('#table p')
-    elem.innerHTML += level + '</br></br>';
-    elem.innerHTML += data['table'].map(
-      n => '<a href="https://twitter.com/' + n.split(1) + '" target="_blank">' + n + '</a>')
-     .join('<br/>')
-    elem.setAttribute("style", "display: block");
-    console.log(elem);
-
-    elem = document.querySelector('#graph')
+    var elem = document.querySelector('#graph')
     elem.setAttribute("style", "width:"  + size + "px");
     elem.setAttribute("style", "height:" + size + "px");
     const Graph = ForceGraph()(elem)
-        .graphData({ 'nodes': data['nodes'], 'links': data['links'] })
+        .graphData(data)
         .backgroundColor("#ffffff")
         .width(size)
         .height(size)
-        .zoom(0.8)
         // configure nodes
-        .nodeColor(n => scale(n.group[level]))
+        .nodeColor(n => scale(n.group[1]))
         .nodeVal(n => n.value * 100000.0)
         // configure links, particles travelling links indicate link direction
         .linkCurvature(.2)
@@ -92,7 +75,7 @@ var LoadEgo = (function(username, level) {
           node.fy = node.y;
         })
         // show panel on node click
-        .onNodeClick(n => OpenPanel(n.name, size, live))
+        .onNodeClick(n => window.open("https://twitter.com/" + n.name));
 
     // Spread nodes a little wider
     Graph.d3Force("charge").strength(-900);
@@ -100,23 +83,35 @@ var LoadEgo = (function(username, level) {
 
 });
 
-var UserSearch = (function() {
+var UserSearch = (function(newPage) {
     var user = document.querySelector('input').value
-    LoadEgo(user, 1)
+    if (newPage) {
+        window.open('/visualisation/communities_ego#' + user)
+    }
+    else {
+        LoadEgo(user)
+    }
 });
 
-var LuckySearch = (function() {
+var LuckySearch = (function(newPage) {
     var users = [ '@CarolineLucas', '@NetZeroWatch', '@GretaThunberg',
         '@ExtinctionR', '@BBCNews' ]
     var rand = Math.floor(Math.random() * users.length);
-    LoadEgo(users[rand], 1);
+    if (newPage) {
+        window.open('/visualisation/communities_ego#' + users[rand])
+    }
+    else {
+        LoadEgo(users[rand]);
+    }
 });
 
 var Draw = (function() {
   var svg = d3.select("#circles");
-  var margin = 20,
-    diameter = Math.min(1000,
-        Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)) - 40;
+
+  if (!svg) return;
+
+  var diameter = Math.min(1000,
+    Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)) - 40;
   svg.attr("width", diameter).attr("height", diameter)
 
   var g = svg.append("g")
@@ -124,7 +119,7 @@ var Draw = (function() {
   var color = d3.scaleLinear().range(d3.schemeSpectral[8]);
 
   var pack = d3.pack()
-    .size([diameter - margin, diameter - margin])
+    .size([diameter, diameter])
     .padding(2);
 
   d3.json("/assets/data/hierarchies.json", function(error, root) {
@@ -154,7 +149,7 @@ var Draw = (function() {
 
     svg.on("click", function() { zoom(root); });
 
-    zoomTo([root.x, root.y, root.r * 2 + margin]);
+    zoomTo([root.x, root.y, root.r * 2]);
 
     function zoom(d) {
       var focus0 = focus; focus = d;
@@ -162,14 +157,14 @@ var Draw = (function() {
       var transition = d3.transition()
         .duration(d3.event.altKey ? 7500 : 750)
         .tween("zoom", function(d) {
-          var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+          var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
           return function(t) { zoomTo(i(t)); };
         });
 
       transition.selectAll("text")
         .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
           .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-          .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+          .on("end", function(d) { if (focus === root || focus.parent === root) this.style.display = "none"; });
     }
 
     function zoomTo(v) {
@@ -180,4 +175,14 @@ var Draw = (function() {
   });
 });
 
+var Load = function() {
+    var url  = document.URL;
+    var user = url.split('#')[1];
+    if (!user) return;
+
+    document.getElementById('username').value = user;
+    UserSearch(0);
+}
+
 Draw();
+Load();

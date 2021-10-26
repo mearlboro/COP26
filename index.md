@@ -17,7 +17,7 @@ body_js:
 <a href="/visualisation/communities">See the communities in this network</a>
 
 <div class="controls">
-<input type="checkbox"><label for="live" class="small">Live data</label><br/>
+<input type="checkbox" disabled><label for="live" class="small">Live data (coming soon)</label><br/>
 <br/>
 <p class="small">Network size:</p>
 <input name="size" value="150"  onclick="LoadNetwork(150 , false)"  type="radio" checked><label for="150" >150</label><br/>
