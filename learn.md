@@ -1,42 +1,17 @@
 ---
 layout: home
-title: What is COP26? Why is it important?
 permalink: /learn/
 ---
 
+Despite countries’ climate pledges and the economic downturn triggered by the Covid-19 pandemic, greenhouse gas (GHG) emissions continue to [rise at record levels](https://www.bloomberg.com/news/articles/2021-10-25/un-says-world-on-course-to-warm-2-7-c-based-on-current-plans?utm_campaign=Carbon%20Brief%20Daily%20Briefing&utm_content=20211026&utm_medium=email&utm_source=Revue%20Daily). At COP21 in 2015, the [Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement/the-paris-agreement) succeeded in setting a temperature increase reduction target: countries committed to limiting global temperature rises to 1.5°C above pre-industrial levels. States had to provide Nationally Determined Contributions (NDCs) to explain how they were going to contribute to achieving the 1.5°C target, and how they were planning to adapt to ensure that people and assets are protected from the consequences of climate change. 
+In the upcoming [Conference of the Parties](https://ukcop26.org/) (COP26), which will be hosted in Glasgow, Scotland, from 1 – 11 November, countries will gather to revise their progress and to determine which actions will be necessary to respect the Paris target. COP26 comes after further warnings from the scientific community: “It is unequivocal that human influence has warmed the atmosphere, ocean and land. Widespread and rapid changes in the atmosphere, ocean, cryosphere and biosphere have occurred” ([IPCC, 2021](https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf)).
+Key themes at this COP will include [mitigation](https://www.eea.europa.eu/help/faq/what-is-the-difference-between#:~:text=In%20essence%2C%20adaptation%20can%20be,(GHG)%20into%20the%20atmosphere.) (i.e. reduction of the GHG emissions), [adaptation](https://www.ipcc.ch/site/assets/uploads/2018/02/WGIIAR5-Chap14_FINAL.pdf) (i.e. adjustment to current and future changes) and [loss and damage](http://www.climate-loss-damage.eu/wp-content/uploads/2021/10/LD_NDC_PB.pdf) (i.e. compensation of current and future losses exceeding the adaptive capacity of countries). Progress towards a climate-neutral future is more needed than ever.
+To learn more about COP26, the Paris Agreement, and the need for action on climate change, the following links may be of interest:
+*   https://ukcop26.org/
+*   https://www.imperial.ac.uk/grantham/publications/climate-change-faqs/how-and-when-do-we-need-to-act-on-climate-change-/ 
 
-COP26 will likely be the most important climate meeting since COP21 where the Paris Agreement was signed.
+<h3>About this dashboard</h3>
 
-<div class='fig'>
-<div class='flexi flexi-5'>
-<div><img alt="languages and countries for COP22" src="/assets/graph/language_pie_cop22.png" /></div>
-<div><img alt="languages and countries for COP23" src="/assets/graph/language_pie_cop23.png" /></div>
-<div><img alt="languages and countries for COP24" src="/assets/graph/language_pie_cop24.png" /></div>
-<div><img alt="languages and countries for COP25" src="/assets/graph/language_pie_cop25.png" /></div>
-<div><img alt="languages and countries for COP26" src="/assets/graph/language_pie_cop26.png" /></div>
-</div>
-<p>Languages and countries over the previous COPs</p>
-</div>
+This dashboard uses data from Twitter to track the online discussion regarding COP26. By considering all publicly available tweets since June 1st, 2021 using the keyword term “cop26”, we investigate how users interact, the communities formed by user interactions, key themes in the hashtags used by ideologically opposed groups, COP26 related hashtags which are trending, and the global distribution of Twitter users engaged in the COP26 discussion. 
 
-
-*   Attention on COP26 has been largely local pre-conference. Attention during the conference is expected to be more global.
-
-![COP attention over time](/assets/graph/cop_counts.png)
-COP attention over time
-
-<h3>Key themes in COP</h3>
-<ul>
-    <li>Plans for adaptation and mitigation.</li>
-    <li>Commitments from specific countries.</li>
-    <li>Funding for developing economies.</li>
-    <li>Emergence of youth.</li>
-</ul>
-<h3>Climate scepticism</h3>
-<ul>
-    <li>Climate denial is rare with limited visibility.</li>
-    <li>Scepticism regarding the need for "net zero" and the impacts of adapting to climate change have far more prominence.</li>
-</ul>
-
-![Net zero scepticism](/assets/graph/sceptic_count.png)
-<p>Net zero scepticism</p>
 
