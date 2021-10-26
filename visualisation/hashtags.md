@@ -12,7 +12,9 @@ body_js:
  - "/assets/js/hashtags.js"
 ---
 
-The Green and Red groups represent the two clusters in the network with the greatest structural polarisation. Switch the toggle to see the #Hashtags most associated with each group. Click on a hashtag to see the COP26 tweets associated with that hashtag.
+The Green and Red groups represent the two clusters in the retweet network with the greatest structural polarisation. 
+Switch the toggle to see the #Hashtags most associated with each group. 
+Click on a hashtag to see the associated COP26 tweets.
 
 <div class="toggle">
   <span class="green">Green group</span>
