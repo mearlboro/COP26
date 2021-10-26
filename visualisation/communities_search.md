@@ -11,7 +11,7 @@ body_js:
     - "/assets/js/communities.js"
 ---
 
-The user network shows the neighbours of and interactions between the neighbours of a single chosen user.
+The user network shows the neighbours of, and interactions between, the neighbours of a single chosen user.
 
 Search for a user by typing @username into the search box. Need inspiration? Hit I'm feeling lucky.
 
