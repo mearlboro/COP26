@@ -13,12 +13,15 @@ body_js:
 
 <p class="small">Click on each coloured circle to explore community members. Click on a yellow circle to zoom out.</p>
 
+
+
+
+<svg id="circles"></svg>
+
 Curious to find a specific account? Type @username into the search bar below. (> 10,000 follower accounts only.)
 
 Don't know who to search? Try the I'm feeling lucky button. 
 
-
-<svg id="circles"></svg>
 Search for a user: <input type="text" id="username" value="@username">
 <button id="search" onclick="UserSearch(1)" >Search</button>
 <button if="lucky"  onclick="LuckySearch(1)">I'm feeling lucky</button>
