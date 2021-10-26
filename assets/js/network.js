@@ -1,5 +1,7 @@
+"use strict";
 
-var GetNetwork = function(size, live) {
+var GetNetwork = (function(size, live) {
+    var data;
     if (live) {
         if (size == 150)  data = retweets_150;
         if (size == 500)  data = retweets_500;
@@ -11,15 +13,15 @@ var GetNetwork = function(size, live) {
         if (size == 1500) data = retweets_1500;
     }
     return data;
-}
+});
 
-var GetTwitterLink = function(handle) {
+var GetTwitterLink = (function(handle) {
     return '<a href="https://twitter.com/' + handle.slice(1) +
         '" target="_blank">' + handle + '</a>';
-}
+});
 
-var GetMostRetweeted = function(handle, size, live) {
-    data = GetNetwork(size, live);
+var GetMostRetweeted = (function(handle, size, live) {
+    var data = GetNetwork(size, live);
 
     var sorted_to = data['links']
         .filter(l => l.source['name'] === handle)
@@ -42,13 +44,13 @@ var GetMostRetweeted = function(handle, size, live) {
     });
 
     return [ sorted_to, sorted_from ];
-}
+});
 
-var ClosePanel = function() {
+var ClosePanel = (function() {
     document.getElementById('panel').classList.add('hide');
-}
+});
 
-var OpenPanel = function(handle, size, live) {
+var OpenPanel = (function(handle, size, live) {
     var user = handle.slice(1)
     document.getElementById('panel_title').innerHTML = handle;
 
@@ -56,7 +58,6 @@ var OpenPanel = function(handle, size, live) {
     var panel = document.getElementById('panel_content');
     panel.innerHTML = '<a class="twitter-timeline" href="https://twitter.com/' + user + '"></a>';
     var h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 385;
-    console.log(h);
     twttr.widgets.createTimeline({
             sourceType: "profile",
             screenName: user
@@ -76,36 +77,38 @@ var OpenPanel = function(handle, size, live) {
     panel.innerHTML += '</p>';
 
     document.getElementById('panel').classList.remove('hide');
-}
+});
 
-var GetHelp = function() {
-    var about_text = "";
-
+var GetHelp = (function() {
     document.getElementById('panel_title').innerHTML = 'About this visualisation';
-    document.getElementById('panel_content').innerHTML = about_text;
+
+    var panel = document.getElementById('panel_content');
+    panel.setAttribute('style', 'height:' + Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 385);
+    panel.innerHTML = document.getElementById('help').innerHTML;
 
     document.getElementById('panel').classList.remove('hide');
-}
+});
 
-var LoadNetwork = function(size, live) {
-    data = GetNetwork(size, live);
-    scale = d3.scaleOrdinal(d3.schemeDark2);
+var LoadNetwork = (function(size, live) {
+    var data = GetNetwork(size, live),
+        scale = d3.scaleOrdinal(d3.schemeDark2);
 
-    const Graph = ForceGraph()(
-      document.getElementById("graph"))
+    var width  = Math.max(document.documentElement.clientWidth  || 0, window.innerWidth  || 0) - 40,
+        height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 140;
+
+    var elem = document.querySelector('#graph');
+    elem.setAttribute("style", "width:"  + width  + "px");
+    elem.setAttribute("style", "height:" + height + "px");
+    const Graph = ForceGraph()(elem)
         .graphData(data)
         .backgroundColor("#ffffff")
-        .zoom(0.6)
+        .zoom(size == 1500 ? 0.3 : 0.6)
         .width(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 40)
         .height(Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 140)
-        // configure nodes
+        // configure nodes and links
         .nodeColor(n => scale(n.group))
         .nodeVal(n => n.value * 4000.0)
-        // configure links, particles travelling links indicate link direction
         .linkCurvature(.2)
-        .linkDirectionalParticles(l => l.value)
-        .linkDirectionalParticleSpeed(l => l.value * 0.001)
-        .linkDirectionalParticleWidth(3)
         // decorate the node
         .nodeCanvasObject((n, ctx, globalScale) => {
           const label = n.name;
@@ -127,11 +130,18 @@ var LoadNetwork = function(size, live) {
         // show panel on node click
         .onNodeClick(n => OpenPanel(n.name, size, live))
 
+    if (size != 1500) {
+      // particles travelling links indicate link direction
+      Graph.linkDirectionalParticles(l => l.value)
+        .linkDirectionalParticleSpeed(l => l.value * 0.001)
+        .linkDirectionalParticleWidth(3)
+    }
+
     // Spread nodes a little wider
     Graph.d3Force("charge").strength(-900);
     Graph.d3VelocityDecay(0.1)
 
     ClosePanel();
-}
+});
 
-LoadNetwork(150, false);
+LoadNetwork(150,  false);
