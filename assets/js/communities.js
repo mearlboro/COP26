@@ -30,7 +30,7 @@ var LoadEgo = (function(username) {
         scale = d3.scaleOrdinal(d3.schemeDark2);
 
     if (!data) {
-      document.querySelector('#message').innerHTML = "Account not in our community database.";
+      document.querySelector('#message').innerHTML = "Account not in our community database.<br> Having trouble? Remember usernames are case sensitive and must be written with the @ symbol in front. <br> Only accounts with more than 10,000 followers are included in this database.";
       return;
     }
     if (data['nodes'].length > 300) {
