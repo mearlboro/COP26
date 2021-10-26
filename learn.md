@@ -3,7 +3,7 @@ layout: home
 permalink: /learn/
 ---
 
-![](/assets/graph/cop_counts.png)
+![](/assets/graph/cop26.png)
 
 Despite countries’ climate pledges and the economic downturn triggered by the Covid-19 pandemic, greenhouse gas (GHG) emissions continue to [rise at record levels](https://www.bloomberg.com/news/articles/2021-10-25/un-says-world-on-course-to-warm-2-7-c-based-on-current-plans?utm_campaign=Carbon%20Brief%20Daily%20Briefing&utm_content=20211026&utm_medium=email&utm_source=Revue%20Daily). At COP21 in 2015, the [Paris Agreement](https://unfccc.int/process-and-meetings/the-paris-agreement/the-paris-agreement) succeeded in setting a temperature increase reduction target: countries committed to limiting global temperature rises to 1.5°C above pre-industrial levels. States had to provide Nationally Determined Contributions (NDCs) to explain how they were going to contribute to achieving the 1.5°C target, and how they were planning to adapt to ensure that people and assets are protected from the consequences of climate change. 
 In the upcoming [Conference of the Parties](https://ukcop26.org/) (COP26), which will be hosted in Glasgow, Scotland, from 1 – 11 November, countries will gather to revise their progress and to determine which actions will be necessary to respect the Paris target. COP26 comes after further warnings from the scientific community: “It is unequivocal that human influence has warmed the atmosphere, ocean and land. Widespread and rapid changes in the atmosphere, ocean, cryosphere and biosphere have occurred” ([IPCC, 2021](https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf)).
