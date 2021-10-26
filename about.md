@@ -12,7 +12,7 @@ This project was in part supported by funding from the UK Government.
 - [Max Falkenberg](https://twitter.com/MaxFalken) is a post-doctoral researcher based at City University in London with a background working in complex systems.
 - [Madalina Sas](https://mis.pm) is a Ph.D. student in complexity science at Imperial College London with a background in computer engineering and an interest in emergent phenomena.
 - Alessandro Galeazzi is a Ph.D. student at the University of Brescia interested in human behavior on social media.
-- Francesca Larosa is a climate scientist at University College London in the Institute of Sustainable Resources. She is also a researcher at the Euro-Mediterranean Center on Climate Change (CMCC) in Venice, Italy.
+- Francesca Larosa is a climate scientist at University College London in the Institute of Sustainable Resources, and a researcher at the Euro-Mediterranean Center on Climate Change in Venice, Italy.
 - Maddalena Torricelli is a physicist based at City University in London with a background in natural language processing for networks.
 - [Niccolò Di Marco](https://twitter.com/Nicco84394204) is a Ph.D. student at the University of Florence working on complex systems and computational social science.
 - [Walter Quattrociocchi](https://sites.google.com/view/walterquattrociocchi/home) is head of the of the Data and Complexity for Society Lab at Sapienza Università di Roma, where he is Associate Professor in Computer Science.
@@ -26,6 +26,6 @@ Prior to working on data science related to climate change information, our grou
 <div><img src="/assets/img/turing.jpg"></div>
 <div><img src="/assets/img/sapienza.png"></div>
 <div><img src="/assets/img/cafoscari.jpg"></div>
-<div><img src="/assets/img/ISR_UCL.jpg"></div>
 <div><img src="/assets/img/CMCCorizzontaleCOL.jpg"></div>
+<div><img src="/assets/img/ISR_UCL.jpg"></div>
 </div>
