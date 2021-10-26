@@ -12,7 +12,7 @@ body_js:
  - "/assets/js/hashtags.js"
 ---
 
-Below are shown the most popular hashtags (word size log-proportional to frequency).
+The Green and Red groups represent the two clusters in the network with the greatest structural polarisation. Switch the toggle to see the #Hashtags most associated with each group. Click on a hashtag to see the COP26 tweets associated with that hashtag.
 
 <div class="toggle">
   <span class="green">Green group</span>
