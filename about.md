@@ -13,7 +13,7 @@ We are a group of computational social scientists, physicists and climate scient
 - [Madalina Sas](https://mis.pm) is a Ph.D. student in complexity science at Imperial College London with a background in computer engineering and an interest in emergent phenomena.
 - [Alessandro Galeazzi](https://scholar.google.com/citations?user=LGWBII4AAAAJ&hl) is a Ph.D. student at the University of Brescia interested in human behavior on social media.
 - [Francesca Larosa](https://scholar.google.com/citations?user=89qTlnEAAAAJ&hl=it&oi=ao) is a post-doctoral researcher at University College London (UK) and a researcher at the Euro-Mediterranean Center on Climate Change in Venice (IT).
-- [Maddalena Torricelli](https://scholar.google.com/citations?user=tIdKNm0AAAAJ&hl=it) is a physicist based at City University in London with a background in natural language processing for networks.
+- [Maddalena Torricelli](https://scholar.google.com/citations?user=tIdKNm0AAAAJ&hl=it) is a post-doctoral researcher based at City University in London with a background in computational social social science and networks.
 - [Niccolò Di Marco](https://twitter.com/Nicco84394204) is a Ph.D. student at the University of Florence working on complex systems and computational social science.
 - [Walter Quattrociocchi](https://sites.google.com/view/walterquattrociocchi/home) is head of the of the Data and Complexity for Society Lab at Sapienza Università di Roma, where he is Associate Professor in Computer Science.
 - [Andrea Baronchelli](https://www.andreabaronchelli.com/) is a Reader in Mathematics at City University in London, and head of Economic Data Science at the Alan Turing Institute.
