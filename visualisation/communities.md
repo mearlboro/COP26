@@ -8,29 +8,23 @@ head_js:
     - "https://unpkg.com/force-graph"
 body_js:
     - "/assets/js/communities.js"
-    - "/assets/data/ego_network.js"
 ---
 
-<p class="small">Click on each coloured circle to explore community members. Click on a yellow circle to zoom out.</p>
+<p class="text-center">Click on each coloured circle to explore community members. Click on a yellow circle to zoom out.</p>
 
+<svg id="circles" class="center"></svg>
 
+<div class="text-center">
+<p>Curious to find a specific account? Type <a>@username</a> into the search bar below (more than 10,000 follower accounts only.)<br/>
+Don't know who to search? Try the <a>I'm feeling lucky</a> button.</p>
 
-
-<svg id="circles"></svg>
-
-Curious to find a specific account? Type @username into the search bar below. (> 10,000 follower accounts only.)
-
-Don't know who to search? Try the I'm feeling lucky button. 
-
-Search for a user: <input type="text" id="username" value="@username">
+<input type="text" id="username" value="@username">
 <button id="search" onclick="UserSearch(1)" >Search</button>
 <button if="lucky"  onclick="LuckySearch(1)">I'm feeling lucky</button>
 <p id="message"></p>
+</div>
 
-<div id="graph"></div>
-
-
-## About this visualisation
+### About this visualisation
 
 This circle packing visualisation shows the nested communities of the 500 most influential users in the COP26 tweet/retweet network. To explore the visualisation click on a circle to zoom in on that community. Clicking on a white circle after the visualisation has zoomed will reset the visualisation.
 

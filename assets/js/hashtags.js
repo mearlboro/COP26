@@ -1,15 +1,23 @@
 "use strict";
 
 var Redraw = (function(e) {
-    document.getElementById('greenCloud').style.display = e.checked ? 'none'  : 'block';
-    document.getElementById('redCloud'  ).style.display = e.checked ? 'block' : 'none';
+    if (e.checked) {
+        document.getElementById('greenCloud').classList.add('hide');
+        document.getElementById('redCloud'  ).classList.remove('hide');
+    }
+    else {
+        document.getElementById('greenCloud').classList.remove('hide');
+        document.getElementById('redCloud'  ).classList.add('hide');
+    }
 });
 
 var Draw = (function(colour) {
   var data   = colour === 'red' ? hashtags_red : hashtags_green;
   var elem   = '#' + colour + 'Cloud';
-  var width  = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 40;
-  var height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 200;
+
+  var width  = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 5,
+      height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 200;
+  width = width > 600 ? width * 0.8 : width - 30;
 
   const cloud = d3.layout.cloud()
     .size([ width, height ])
@@ -30,10 +38,18 @@ var Draw = (function(colour) {
     // colour scale
     var scale;
     if (colour === 'red') {
-      scale = d3.scaleOrdinal(d3.schemeRdGy[9]);
+      let cs = [];
+      for (let i = 0.5; i < 1; i += 0.05) {
+        cs.push(d3.interpolateYlOrRd(i));
+      }
+      scale = d3.scaleOrdinal(cs);
     }
     else {
-      scale = d3.scaleOrdinal(d3.schemePuBuGn[9]);
+      let cs = [];
+      for (let i = 0.7; i < 1; i += 0.03) {
+        cs.push(d3.interpolateSpectral(i));
+      }
+      scale = d3.scaleOrdinal(cs);
     }
 
     // Draw the word cloud

@@ -1,28 +1,29 @@
 "use strict";
 
 var GetData = (function(username) {
-    var root = graph_data['nodes'].filter(
+    var data = graph_data;
+
+    var root = data['nodes'].filter(
       n => n.name.toLowerCase() === username.toLowerCase())[0];
     if (!root) return 0;
 
     var id = root.id
 
     // get all links containing this node and their node ids
-    var dir_links = graph_data['links'].filter(
+    var dir_links = data['links'].filter(
         l => l['source'] === id || l['target'] == id);
     var dir_ids = dir_links.map(
       l => l['source'] === id ? l['target'] : l['source']);
     // get all links between the direct neighbours
-    var indir_links = graph_data['links'].filter(
+    var indir_links = data['links'].filter(
       l => dir_ids.includes(l['source']) && dir_ids.includes(l['target']))
 
-    var nodes = graph_data['nodes'].filter(n => dir_ids.includes(n.id) || id === n.id);
+    var nodes = data['nodes'].filter(n => dir_ids.includes(n.id) || id === n.id);
 
-    var data = {
+    return({
         'nodes': nodes,
         'links': dir_links.concat(indir_links),
-    };
-    return(data);
+    });
 });
 
 var LoadEgo = (function(username) {
@@ -38,8 +39,9 @@ var LoadEgo = (function(username) {
       return;
     }
 
-    var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20,
+    var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 5,
         height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 200;
+    width = width > 600 ? width * 0.8 : width - 30;
 
     var elem = document.querySelector('#graph')
     elem.setAttribute("style", "width:"  + width  + "px");
@@ -51,7 +53,7 @@ var LoadEgo = (function(username) {
         .height(height)
         // configure nodes
         .nodeColor(n => scale(n.group[1]))
-        .nodeVal(n => n.value * 100000.0)
+        .nodeVal(n => n.value * 5000.0)
         // configure links, particles travelling links indicate link direction
         .linkCurvature(.2)
         .linkDirectionalParticles(l => l.value)
@@ -60,7 +62,7 @@ var LoadEgo = (function(username) {
         // decorate the node
         .nodeCanvasObject((n, ctx, globalScale) => {
           const label = n.name;
-          ctx.font =  (Math.pow(2, 1 + n.value * 20) * 10).toString() + 'px monospace';
+          ctx.font =  (Math.pow(2, 1 + n.value * 20) * 7).toString() + 'px monospace';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.strokeStyle = '#ffffff';
@@ -104,6 +106,7 @@ var LuckySearch = (function(newPage) {
         window.open('/visualisation/communities_search#' + users[rand])
     }
     else {
+        document.querySelector('input').value = users[rand];
         LoadEgo(users[rand]);
     }
 });
@@ -122,8 +125,9 @@ var DrawCircles = (function() {
 
   if (!svg) return;
 
-  var diameter = Math.min(1000,
-    Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)) - 40;
+  var diameter = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  diameter = diameter > 600 ? diameter * 0.8 : diameter - 40;
+  diameter = diameter > 1000 ? 1000 : diameter;
   svg.attr("width", diameter).attr("height", diameter)
 
   var g = svg.append("g")

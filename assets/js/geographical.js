@@ -9,16 +9,17 @@ var Draw = (function() {
     .await(draw);
 
   function draw(error, topo) {
-    var svg = d3.select("#map"),
+    var svg = d3.select("#graph"),
       width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 40,
       height = width / 2;
+    width = width > 600 ? width * 0.8 : width - 30;
     svg.attr("width", width).attr("height", height);
 
     // Map, projection, colour scale
     var path = d3.geoPath();
     var projection = d3.geoMercator()
-      .scale(200)
-      .center([10,40])
+      .scale(width > 800 ? 200 : 100)
+      .center([0,40])
       .translate([width / 2, height / 2]);
     var scale = d3.scaleThreshold()
       .domain([4, 16, 64, 256, 1024, 4096, 16384])
@@ -57,19 +58,20 @@ var Draw = (function() {
       .on("mouseleave", mouseLeave);
 
     // Draw a legend
-    const legend = svg.append("g").attr("id", "legend");
-    const legend_entry = legend.selectAll("g.legend")
-      .data(scale.range().map((d) => {
-        d = scale.invertExtent(d);
-        if (d[0] == null) d[0] = 1;
-        return d;
-      }))
-      .enter().append("g").attr("class", "legend_entry");
-    legend_entry.append("rect").attr("x", 20).attr("y", (d, i) => height - (i * 20) - 40)
-      .attr("width", 20).attr("height", 20).style("fill", (d) => scale(d[0]));
-    legend_entry.append("text").attr("x", 50).attr("y", (d, i) => height - (i * 20) - 26)
-      .text((d, i) => d[1] ? (d[0] + "-" + d[1]) : ("> " + d[0]));
-
+    if (width > 600) {
+      const legend = svg.append("g").attr("id", "legend");
+      const legend_entry = legend.selectAll("g.legend")
+        .data(scale.range().map((d) => {
+          d = scale.invertExtent(d);
+          if (d[0] == null) d[0] = 1;
+          return d;
+        }))
+        .enter().append("g").attr("class", "legend_entry");
+      legend_entry.append("rect").attr("x", 20).attr("y", (d, i) => height - (i * 20) - 40)
+        .attr("width", 20).attr("height", 20).style("fill", (d) => scale(d[0]));
+      legend_entry.append("text").attr("x", 50).attr("y", (d, i) => height - (i * 20) - 26)
+        .text((d, i) => d[1] ? (d[0] + "-" + d[1]) : ("> " + d[0]));
+    }
   }
 });
 

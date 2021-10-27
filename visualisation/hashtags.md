@@ -16,16 +16,14 @@ The Green and Red groups represent the two clusters in the retweet network with 
 Switch the toggle to see the #Hashtags most associated with each group. 
 Click on a hashtag to see the associated COP26 tweets.
 
-<div class="toggle">
+<div class="toggle text-center">
   <span class="green">Green group</span>
   <label class="switch"><input type="checkbox" onclick="Redraw(this)"><span class="slider"></span></label>
   <span class="red">Red group</span>
 </div>
 
-<svg id="redCloud" style="display: none">
-</svg>
-<svg id="greenCloud">
-</svg>
+<svg id="redCloud"   class="center hide"></svg>
+<svg id="greenCloud" class="center"></svg>
 
 ### About this visualisation
 

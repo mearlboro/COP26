@@ -12,7 +12,7 @@ body_js:
 
 <p>&nbsp;</p>
 
-<svg id="map"></svg>
+<svg id="graph"></svg>
 
 ### About this visualisation
 

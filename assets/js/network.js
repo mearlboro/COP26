@@ -1,4 +1,4 @@
-"use strict";
+"use 5strict";
 
 var GetNetwork = (function(size, live) {
     var data;
@@ -57,7 +57,7 @@ var OpenPanel = (function(handle, size, live) {
     // add embedded twitter feed for the selected user
     var panel = document.getElementById('panel_content');
     panel.innerHTML = '<a class="twitter-timeline" href="https://twitter.com/' + user + '"></a>';
-    var h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 385;
+    var h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 370;
     twttr.widgets.createTimeline({
             sourceType: "profile",
             screenName: user
@@ -70,7 +70,7 @@ var OpenPanel = (function(handle, size, live) {
 
     // add most retweeted by user and who retweeted user most
     panel.innerHTML += '<p>Top users retweeted by this account:<br/>';
-    links = GetMostRetweeted(handle, size, live);
+    var links = GetMostRetweeted(handle, size, live);
     links[0].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
     panel.innerHTML += '</p><p>Top users who retweeted this account:<br/>';
     links[1].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
@@ -79,22 +79,14 @@ var OpenPanel = (function(handle, size, live) {
     document.getElementById('panel').classList.remove('hide');
 });
 
-var GetHelp = (function() {
-    document.getElementById('panel_title').innerHTML = 'About this visualisation';
-
-    var panel = document.getElementById('panel_content');
-    panel.setAttribute('style', 'height:' + Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 385);
-    panel.innerHTML = document.getElementById('help').innerHTML;
-
-    document.getElementById('panel').classList.remove('hide');
-});
 
 var LoadNetwork = (function(size, live) {
     var data = GetNetwork(size, live),
         scale = d3.scaleOrdinal(d3.schemeDark2);
 
-    var width  = Math.max(document.documentElement.clientWidth  || 0, window.innerWidth  || 0) - 40,
+    var width  = Math.max(document.documentElement.clientWidth  || 0, window.innerWidth  || 0) - 5,
         height = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 140;
+    width = width > 600 ? width * 0.8 : width - 30;
 
     var elem = document.querySelector('#graph');
     elem.setAttribute("style", "width:"  + width  + "px");
@@ -103,8 +95,8 @@ var LoadNetwork = (function(size, live) {
         .graphData(data)
         .backgroundColor("#ffffff")
         .zoom(size == 1500 ? 0.3 : 0.6)
-        .width(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 40)
-        .height(Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 140)
+        .width(width)
+        .height(height)
         // configure nodes and links
         .nodeColor(n => scale(n.group))
         .nodeVal(n => n.value * 4000.0)
