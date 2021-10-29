@@ -1,11 +1,11 @@
-"use 5strict";
+"use strict";
 
 var GetNetwork = (function(size, live) {
     var data;
     if (live) {
-        if (size == 150)  data = retweets_150;
-        if (size == 500)  data = retweets_500;
-        if (size == 1500) data = retweets_1500;
+        if (size == 150)  data = live_150;
+        if (size == 500)  data = live_500;
+        if (size == 1500) data = live_1500;
     }
     else {
         if (size == 150)  data = retweets_150;
@@ -80,7 +80,19 @@ var OpenPanel = (function(handle, size, live) {
 });
 
 
-var LoadNetwork = (function(size, live) {
+var ToggleLive = (function() {
+    var bs = document.querySelectorAll('input[name=size]');
+	var size;
+	for (var b of bs) {
+		if (b.checked) size = b.value; break;
+	}
+
+	LoadNetwork(size);
+});
+
+
+var LoadNetwork = (function(size) {
+    var live = document.querySelector('#live').checked;
     var data = GetNetwork(size, live),
         scale = d3.scaleOrdinal(d3.schemeDark2);
 
@@ -91,7 +103,7 @@ var LoadNetwork = (function(size, live) {
     var elem = document.querySelector('#graph');
     elem.setAttribute("style", "width:"  + width  + "px");
     elem.setAttribute("style", "height:" + height + "px");
-    const Graph = ForceGraph()(elem)
+    let Graph = ForceGraph()(elem)
         .graphData(data)
         .backgroundColor("#ffffff")
         .zoom(size == 1500 ? 0.3 : 0.6)
@@ -103,7 +115,7 @@ var LoadNetwork = (function(size, live) {
         .linkCurvature(.2)
         // decorate the node
         .nodeCanvasObject((n, ctx, globalScale) => {
-          const label = n.name;
+          var label = n.name;
           ctx.font =  (Math.pow(2, 1 + n.value * 20) * 10).toString() + 'px monospace';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
@@ -134,6 +146,13 @@ var LoadNetwork = (function(size, live) {
     Graph.d3VelocityDecay(0.1)
 
     ClosePanel();
+
+	if (live) {
+		document.querySelector('#updated').innerHTML = "Last update:<br/>" + last_updated;
+	}
+	else {
+		document.querySelector('#updated').innerHTML = '';
+	}
 });
 
 LoadNetwork(150,  false);

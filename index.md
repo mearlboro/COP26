@@ -10,6 +10,9 @@ body_js:
  - "/assets/data/retweets_150.js"
  - "/assets/data/retweets_500.js"
  - "/assets/data/retweets_1500.js"
+ - "/assets/data/livegraph_150.js"
+ - "/assets/data/livegraph_500.js"
+ - "/assets/data/livegraph_1500.js"
  - "/assets/js/network.js"
  - "https://platform.twitter.com/widgets.js"
 ---
@@ -19,14 +22,15 @@ body_js:
 </p>
 
 <div class="controls small">
-  <input type="checkbox" disabled><label for="live" class="small">Live data (coming soon)</label><br/>
+  <input type="checkbox" id="live" onClick="ToggleLive()"><label for="live" class="small">Live data</label><br/>
   <br/>
   <div class="hide-sm">
     Network size:<br/>
-    <input name="size" value="150"  onclick="LoadNetwork(150 , false)"  type="radio" checked><label for="150" >150</label><br/>
-    <input name="size" value="500"  onclick="LoadNetwork(500 , false)"  type="radio"><label for="500" >500</label><br/>
-    <input name="size" value="1500" onclick="LoadNetwork(1500, false)"  type="radio"><label for="1500">1500</label><br/>
+    <input name="size" value="150"  onclick="LoadNetwork(150 )"  type="radio" checked><label for="150" >150</label><br/>
+    <input name="size" value="500"  onclick="LoadNetwork(500 )"  type="radio"><label for="500" >500</label><br/>
+    <input name="size" value="1500" onclick="LoadNetwork(1500)"  type="radio"><label for="1500">1500</label><br/>
   </div>
+  <p class="small" id="updated"></p>
 </div>
 
 <div id="graph">
