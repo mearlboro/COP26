@@ -1,6 +1,6 @@
 ---
 layout: home
-title: COP26 Geographical Visualisations
+title: Geographical Visualisations
 permalink: /visualisation/geographical/
 head_js:
  - "https://d3js.org/d3.v4.min.js"

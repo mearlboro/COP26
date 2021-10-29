@@ -1,6 +1,6 @@
 ---
 layout: home
-title: COP26 Communities Visualisation
+title: Communities Visualisation
 permalink: /visualisation/communities
 head_js:
     - "https://d3js.org/d3.v4.min.js"

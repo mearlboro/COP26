@@ -1,6 +1,6 @@
 ---
 layout: home
-title: COP26 Most popular Hashtags
+title: Most popular Hashtags
 permalink: /visualisation/hashtags
 head_js:
  - "https://d3js.org/d3.v4.min.js"
