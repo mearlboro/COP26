@@ -1,83 +1,65 @@
-var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 100;
-var width = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 100;
+"use strict";
 
-var svg = d3.select("trends");
-console.log(svg)
+var Draw = (function(color) {
 
-var margin = {top: 20, right: 80, bottom: 30, left: 50},
-    width = width - margin.left - margin.right,
-    height = height - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 5;
+  width = width > 600 ? width * 0.8 : width - 30;
+  width -= 30;
+  var height = width * 0.4 - 40;
 
-var parseTime = d3.timeParse("%Y-%m-%d");
+  // append the svg object to the body of the page
+  var svg = d3.select("svg")
+    .attr("width",  width  + 20)
+    .attr("height", height + 40)
+    .append("g")
+      .attr("width",  width )
+      .attr("height", height)
+      .attr("transform", "translate(20, 20)");
 
-var x = d3.scaleTime().range([0, width]),
-    y = d3.scaleLinear().range([height, 0]),
-    z = d3.scaleOrdinal(d3.schemeCategory20);
+  //Read the data
+  d3.csv("/assets/data/trend_data.csv", function(data) {
+    var parser = d3.timeParse("%Y-%m-%dT%I");
 
-var line = d3.line()
-    .curve(d3.curveBasis)
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.use); });
+    // group the data by the hashtag
+    var sumstat = d3.nest()
+      .key((d) => d.hashtag)
+      .entries(data);
 
-d3.csv("/assets/data/trends.csv", type, function(error, data) {
-  if (error) throw error;
-
-  var cities = data.columns.slice(1).map(function(id) {
-    return {
-      id: id,
-      values: data.map(function(d) {
-        return {date: d.date, temperature: d[id]};
-      })
-    };
-  });
-
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-
-  y.domain([
-    d3.min(cities, function(c) { return d3.min(c.values, function(d) { return d.temperature; }); }),
-    d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.temperature; }); })
-  ]);
-
-  z.domain(cities.map(function(c) { return c.id; }));
-
-  g.append("g")
-      .attr("class", "axis axis--x")
+    var xaxis = d3.scaleLinear()
+      .domain(d3.extent(data, (d) => parser(d.date)))
+      .range([ 0, width ]);
+    svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(xaxis).ticks(5).tickFormat(d3.timeFormat("%d %b")));
 
-  g.append("g")
-      .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("fill", "#000")
-      .text("Temperature, ºF");
+    var yaxis = d3.scaleLinear()
+      .domain([ 0, d3.max(data, (d) => Math.sqrt(d.n)) + 1])
+      .range([ height, 0 ])
+    svg.append("g")
+      .call(d3.axisLeft(yaxis));
 
-  var city = g.selectAll(".city")
-    .data(cities)
-    .enter().append("g")
-      .attr("class", "city");
+    // color palette
+    var res = sumstat.map((d) => d.key) // list of group names
+    var color = d3.scaleOrdinal()
+      .domain(res)
+      .range(d3.schemeDark2);
 
-  city.append("path")
-      .attr("class", "line")
-      .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return z(d.id); });
+    // Draw the line
+    svg.selectAll(".line")
+        .data(sumstat)
+        .enter()
+        .append("path")
+          .attr("fill", "none")
+          .attr("stroke", (d) => color(d.key))
+          .attr("stroke-width", 1)
+          .attr("stroke-opacity", 0.5)
+          .attr("d", (d) => d3.line()
+              .x((d) => xaxis(parser(d.date)))
+              .y((d) => yaxis(Math.sqrt(d.n)))
+              (d.values)
+          );
 
-  city.append("text")
-      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
-      .attr("x", 3)
-      .attr("dy", "0.35em")
-      .style("font", "10px sans-serif")
-      .text(function(d) { return d.id; });
+  })
 });
 
-function type(d, _, columns) {
-  d.date = parseTime(d.date);
-  for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
-  return d;
-}
-
+Draw();
