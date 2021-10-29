@@ -1,6 +1,6 @@
 ---
 layout: home
-title: COP26 Community User Networks
+title: Community User Networks
 permalink: /visualisation/communities_search
 head_js:
     - "https://d3js.org/d3.v4.min.js"

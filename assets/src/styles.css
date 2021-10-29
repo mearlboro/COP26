@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-size: 1.2em;
 }
+main { min-height: calc(100vh - 400px); }
 
 @media screen and (min-width: 600px) {
   nav, main {
@@ -33,6 +34,8 @@ footer {
   padding: 30px 0;
   margin-top: 50px;
   box-sizing: border-box;
+  position: relative;
+  bottom: 0;
 }
 footer p { font-size: 15px; }
 footer div {
@@ -82,9 +85,25 @@ a {
   .hide-sm { display: none !important; }
 }
 
-/* Navigation */
-.site-nav { text-align: right; }
-.site-nav .page-link:not(:last-child) { margin-right: 20px; }
+/* Header */
+nav {
+  margin-top: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #999;
+  margin-bottom: 16px;
+}
+
+.title {
+  float: left;
+  font-family: 'futura-pt';
+  margin: 0;
+  font-size: 20px;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.main-menu { text-align: right; }
+.main-menu .page-link:not(:last-child) { margin-right: 20px; }
 .main-menu a {
   font-weight: 400;
   line-height: 25px;

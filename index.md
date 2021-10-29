@@ -1,7 +1,7 @@
 ---
 layout: home
 permalink: /
-title: COP26 Retweet Network
+title: Retweet Network
 head_js:
  - "https://d3js.org/d3.v4.min.js"
  - "https://d3js.org/d3-scale-chromatic.v1.min.js"
