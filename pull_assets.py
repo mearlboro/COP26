@@ -11,4 +11,5 @@ def Pull_Assets():
     repo.git.add('assets/data/trend_data.csv')
 
     repo.git.commit('-m', 'Updated live files')
+    origin.pull()
     origin.push()
