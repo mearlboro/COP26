@@ -12,9 +12,9 @@ body_js:
  - "/assets/js/hashtags.js"
 ---
 
-The Green and Red groups represent the two clusters in the retweet network with the greatest structural polarisation. 
+<p class="text-center"> The Green and Red groups represent the two clusters in the retweet network with the greatest structural polarisation. 
 Switch the toggle to see the #Hashtags most associated with each group. 
-Click on a hashtag to see the associated COP26 tweets.
+Click on a hashtag to see the associated COP26 tweets. </p>
 
 <div class="toggle text-center">
   <span class="green">Green group</span>
@@ -27,11 +27,9 @@ Click on a hashtag to see the associated COP26 tweets.
 
 ### About this visualisation
 
-These word clouds show the 180 hashtags which most often occur in tweets from two ideologically opposed COP26 twitter communities. The size of a hashtag indicates the prevalence of that hashtag within an ideological group.
+The 180 hashtags that most often occur in tweets from two ideologically opposed COP26 Twitter communities. The size of a hashtag indicates the prevalence of that hashtag within an ideological group.
 
-This ideological opposition is detected automatically by applying community detection methods to the tweet/retweet network prior to COP26 (data from 01/06/2021 to 20/10/2021), and identifying the communities whose interactions exhibit the clearest separation.  Words are coded from red to green, depending on the proportion tweets which contain the hashtag in each of the two ideology groups (the red group and the green group).
-
-Note, for privacy and data protection reasons we do not identify which twitter users fall within each group.
+Ideological opposition is detected automatically by applying community detection methods to the retweet network prior to COP26 (data from 01/06/2021 to 20/10/2021), and identifying the communities whose interactions exhibit the clearest separation. Note, for privacy and data protection reasons we do not identify which twitter users fall within each group.
 
 This visualisation was created using Javascript D3 and uses the <a href="https://www.jasondavies.com/wordcloud/" target="_blank">Word cloud</a> package by Jason Davies.
 
