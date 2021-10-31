@@ -9,6 +9,10 @@ def Pull_Assets():
     repo.git.add('assets/data/livegraph_500.js')
     repo.git.add('assets/data/livegraph_1500.js')
     repo.git.add('assets/data/trend_data.csv')
+    try:
+        repo.git.add('assets/data/trend_data_cf.csv')
+    except:
+        pass
 
     repo.git.commit('-m', 'Updated live files')
     origin.pull()
