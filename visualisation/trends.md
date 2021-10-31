@@ -3,9 +3,9 @@ layout: home
 title: Hashtag Trends
 permalink: /visualisation/trends
 head_js:
- - "https://d3js.org/d3.v4.min.js"
- - "https://d3js.org/d3-scale-chromatic.v1.min.js"
+ - "https://d3js.org/d3.v6.min.js"
 body_js:
+ - "/assets/data/trends_data.js"
  - "/assets/js/trends.js"
 ---
 
@@ -19,5 +19,5 @@ The chart shows the "trending score" for hashtags associated with COP26, calcula
 
 The trending score is based on methods inspired by Twitter's trending algorithm. The implementation used was created by Jeff Kolb and Josh Montague and is available <a href="https://github.com/twitterdev/Gnip-Trend-Detection" target="_blank">here</a>. 
 
-This visualisation was created using Javascript D3 and uses the XXX package.
+This visualisation was created using Javascript D3 and uses the <a href="https://observablehq.com/@d3/multi-line-chart" target="_blank">Multiline chart</a>.
 
