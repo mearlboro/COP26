@@ -5,9 +5,9 @@ var height = Math.min(width/2, 500);
 var parser = d3.timeParse("%Y-%m-%dT%I");
 
 var chart = LineChart(trends_data, {
-  x: d => parser(d["date"]),
-  y: d => Math.sqrt(d["n"]),
-  z: d => d["hashtag"],
+  x: d => parser(d.date),
+  y: d => Math.sqrt(d.n),
+  z: d => d.hashtag,
   yLabel: "↑ usage",
   width: width,
   height: height,
