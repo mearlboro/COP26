@@ -1,5 +1,4 @@
-var trends_data = [
-{"hashtag":"#blinks","date":"2021-10-26T12","n":0.0}
+var trends_data = [{"hashtag":"#blinks","date":"2021-10-26T12","n":0.0}
 {"hashtag":"#blinks","date":"2021-10-26T13","n":0.0}
 {"hashtag":"#blinks","date":"2021-10-26T14","n":0.0}
 {"hashtag":"#blinks","date":"2021-10-26T15","n":0.0}
