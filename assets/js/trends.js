@@ -147,7 +147,7 @@ function LineChart(data, {
     path.attr("stroke", ([z]) => Z[i] === z ? null : "#ddd").filter(([z]) => Z[i] === z).raise();
     dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
     if (T) dot.select("text").text(T[i])
-    .on("click", i => window.open('https://twitter.com/search?q=cop26%20%23' + text(T[i]) ));
+    .on("click", i => window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i]) ));
     svg.property("value", O[i]).dispatch("input", {bubbles: true});
   }
 
