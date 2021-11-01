@@ -140,7 +140,7 @@ function LineChart(data, {
       .attr("font-size", 14)
       .attr("text-anchor", "middle")
       .attr("y", -8)
-      .on("click", (T,i) => window.open('https://twitter.com/search?q=cop26%20%23' + T[i].slice(1) ));
+      .on("click", (O,i) => window.open('https://twitter.com/search?q=cop26%20%23' + O[i].slice(1) ));
 
   function pointermoved(event) {
     const [xm, ym] = d3.pointer(event);
