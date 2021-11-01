@@ -1,15 +1,6 @@
 var flare = live_1500;
 var files = flare['nodes'].slice(1,50);
 
-chart = BubbleChart(files, {
-  label: d => d.name,
-  value: d => d.value,
-  group: d => d.group,
-  title: d => d.name,
-  link: d => `https://twitter.com/${d.name.slice(1)}`,
-  width: 1152
-})
-
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
 // https://observablehq.com/@d3/bubble-chart
@@ -112,4 +103,11 @@ function BubbleChart(data, {
   return Object.assign(svg.node(), {scales: {color}});
 }
 
-BubbleChart(files)
+chart = BubbleChart(files, {
+  label: d => d.name,
+  value: d => d.value,
+  group: d => d.group,
+  title: d => d.name,
+  link: d => `https://twitter.com/${d.name.slice(1)}`,
+  width: 1152
+})
