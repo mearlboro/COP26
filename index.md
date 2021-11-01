@@ -18,7 +18,7 @@ body_js:
 ---
 
 <p class="text-center">
-<a href="/visualisation/communities">See the communities in this network</a>
+<a href="/visualisation/communities">Communities in this network</a> <a href="/visualisation/communities">Live trending hashtags</a>
 </p>
 
 <div class="controls small">
