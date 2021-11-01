@@ -70,7 +70,7 @@ function LineChart(data, {
 
   // Compute titles.
   const T = title === undefined ? Z : title === null ? null : d3.map(data, title)
-      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)));
+
 
   // Construct a line generator.
   const line = d3.line()
@@ -140,14 +140,16 @@ function LineChart(data, {
       .attr("font-family", "monospace")
       .attr("font-size", 14)
       .attr("text-anchor", "middle")
-      .attr("y", -8);
+      .attr("y", -8)
+      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)));
 
   function pointermoved(event) {
     const [xm, ym] = d3.pointer(event);
     const i = d3.least(I, i => Math.hypot(xScale(X[i]) - xm, yScale(Y[i]) - ym)); // closest point
     path.attr("stroke", ([z]) => Z[i] === z ? null : "#ddd").filter(([z]) => Z[i] === z).raise();
     dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
-    if (T) dot.select("text").text(T[i]);
+    if (T) dot.select("text").text(T[i])
+    .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)));
     svg.property("value", O[i]).dispatch("input", {bubbles: true});
   }
 
