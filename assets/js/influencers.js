@@ -1,3 +1,5 @@
+"use strict";
+
 var flare = live_1500;
 var files = flare['nodes'].slice(1,50);
 
@@ -103,7 +105,7 @@ function BubbleChart(data, {
   return Object.assign(svg.node(), {scales: {color}});
 }
 
-chart = BubbleChart(files, {
+var chart = BubbleChart(files, {
   label: d => d.name,
   value: d => d.value,
   group: d => d.group,
@@ -111,3 +113,5 @@ chart = BubbleChart(files, {
   link: d => `https://twitter.com/${d.name.slice(1)}`,
   width: 1152
 })
+
+chart();
