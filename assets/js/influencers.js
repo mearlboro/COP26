@@ -1,10 +1,11 @@
+"use strict";
+
 var width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 5;
 width = width > 600 ? width * 0.8 : width - 30;
 var height = Math.min(width/2, 500);
 
-
-flare = live_1500['nodes'].slice(0,50)
-files = flare.filter(d => d.value !== null)
+var flare = live_1500['nodes'].slice(0,50)
+var files = flare.filter(d => d.value !== null)
 
 chart = BubbleChart(files, {
   label: d => d.name,
