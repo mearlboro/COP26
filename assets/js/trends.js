@@ -140,7 +140,6 @@ function LineChart(data, {
       .attr("font-size", 14)
       .attr("text-anchor", "middle")
       .attr("y", -8)
-      .text((d) => d.text)
       .on("click", function() {window.open('https://twitter.com/search?q=cop26%20%23' + d.slice(1) ) });
 
   function pointermoved(event) {
