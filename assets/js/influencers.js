@@ -111,3 +111,5 @@ function BubbleChart(data, {
 
   return Object.assign(svg.node(), {scales: {color}});
 }
+
+BubbleChart(files)
