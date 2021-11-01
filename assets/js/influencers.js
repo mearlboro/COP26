@@ -5,7 +5,7 @@ width = width > 600 ? width * 0.8 : width - 30;
 var height = Math.min(width/2, 500);
 
 var flare = live_1500;
-var flare_filt = flare['nodes'].slice(1,50);
+var files = flare['nodes'].slice(1,50);
 
 chart = BubbleChart(files, {
   label: d => d.name,
