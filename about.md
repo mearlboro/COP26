@@ -15,6 +15,7 @@ We are a group of computational social scientists, physicists and climate scient
 - [Francesca Larosa](https://scholar.google.com/citations?user=89qTlnEAAAAJ&hl=it&oi=ao){:target="_blank"} is a post-doctoral researcher at University College London (UK) and a researcher at the Euro-Mediterranean Center on Climate Change in Venice (IT).
 - [Maddalena Torricelli](https://scholar.google.com/citations?user=tIdKNm0AAAAJ&hl=it){:target="_blank"} is a post-doctoral researcher based at City University in London with a background in computational social social science and networks.
 - [Niccolò Di Marco](https://twitter.com/Nicco84394204){:target="_blank"} is a Ph.D. student at the University of Florence working on complex systems and computational social science.
+- [Fabiana Zollo](https://www.unive.it/data/persone/14075308/curriculum) is an Assistant Professor in the Dept. of Environmental Sciences, Informatics and Statistics and Research Fellow in the Center for the Humanities & Social Change at Ca’ Foscari University of Venice.
 - [Walter Quattrociocchi](https://sites.google.com/view/walterquattrociocchi/home){:target="_blank"} is head of the of the Data and Complexity for Society Lab at Sapienza Università di Roma, where he is Associate Professor in Computer Science.
 - [Andrea Baronchelli](https://www.andreabaronchelli.com/){:target="_blank"} is a Reader in Mathematics at City University in London, and head of Economic Data Science at the Alan Turing Institute.
 
