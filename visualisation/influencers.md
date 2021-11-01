@@ -5,8 +5,8 @@ permalink: /visualisation/influencers
 head_js:
  - "https://d3js.org/d3.v6.min.js"
 body_js:
- - "/assets/js/influencers.js"
  - "/assets/data/livegraph_1500.js"
+  - "/assets/js/influencers.js"
 ---
 
 <p class="text-center"> See which Twitter accounts are the top COP26 influencers. </p>
