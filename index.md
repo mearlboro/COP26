@@ -18,6 +18,10 @@ body_js:
 ---
     
 <p class="text-center">
+Network of publicly visible retweet interactions related to COP26. Zoom out to see full structure and look out for fringe communities. 
+</p>
+
+<p class="text-center">
 <a href="/visualisation/communities">Communities in this network</a>  &nbsp;&nbsp;&nbsp; <a href="/visualisation/trends">Live trending hashtags</a>
 </p>
 
@@ -43,8 +47,6 @@ body_js:
 </div>
 
 ### About this visualisation
-
-Network of publicly visible retweet interactions related to COP26. Zoom out to see the full structure of the network and look out for fringe communities.
 
 Use the buttons on the left to change the size of the visualised network (not available on mobile) or switch between the network of interactions prior to COP26, and live during COP26. Since COP26 is being hosted in the UK, the network of interactions prior to the conference is dominated by UK-based twitter accounts.
 
