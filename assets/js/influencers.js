@@ -6,7 +6,6 @@ var height = Math.min(width/2, 500);
 
 var flare = live_1500;
 var flare_filt = flare['nodes'].slice(1,50);
-var files = flare.filter(d => d.value !== null);
 
 chart = BubbleChart(files, {
   label: d => d.name,
