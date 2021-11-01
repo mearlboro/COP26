@@ -18,6 +18,7 @@ Search for a user by typing <a>@username</a> into the search box. Need inspirati
 <button id="search" onclick="UserSearch(0)" >Search</button>
 <button if="lucky"  onclick="LuckySearch(0)">I'm feeling lucky</button>
 <p id="message"></p>
+</div>
 
 <div id="graph" class="center"></div>
 
