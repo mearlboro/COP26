@@ -105,7 +105,7 @@ function BubbleChart(data, {
   return Object.assign(svg.node(), {scales: {color}});
 }
 
-BubbleChart(files, {
+var chart = BubbleChart(files, {
   label: d => d.name,
   value: d => d.value,
   group: d => d.group,
