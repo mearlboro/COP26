@@ -105,7 +105,7 @@ function BubbleChart(data, {
   return Object.assign(svg.node(), {scales: {color}});
 }
 
-var chart = BubbleChart(files, {
+BubbleChart(files, {
   label: d => d.name,
   value: d => d.value,
   group: d => d.group,
@@ -113,5 +113,3 @@ var chart = BubbleChart(files, {
   link: d => `https://twitter.com/${d.name.slice(1)}`,
   width: 1152
 })
-
-chart();
