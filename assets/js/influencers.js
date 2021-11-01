@@ -1,10 +1,13 @@
 var flare = live_1500;
 var files = flare['nodes'].slice(1,50);
 
-str1 = JSON.stringify(flare);
+
 str2 = JSON.stringify(files);
-alert(str1);
 alert(str2);
+str3 = JSON.stringify(files.name);
+alert(str3);
+str4 = JSON.stringify(files.value);
+alert(str4);
 
 var chart = BubbleChart(files, {
   label: d => d.name,
