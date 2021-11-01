@@ -77,7 +77,8 @@ function LineChart(data, {
       .defined(i => D[i])
       .curve(curve)
       .x(i => xScale(X[i]))
-      .y(i => yScale(Y[i]));
+      .y(i => yScale(Y[i]))
+      .attr("target","_blank", function(d) { return 'https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1))});
 
   const svg = d3.select("svg")
       .attr("width", width)
