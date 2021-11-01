@@ -19,7 +19,7 @@ Search for a user by typing <a>@username</a> into the search box. Need inspirati
 <button if="lucky"  onclick="LuckySearch(0)">I'm feeling lucky</button>
 <p id="message"></p>
 
-
+<div id="graph" class="center"></div>
 
 ### About this visualisation
 
