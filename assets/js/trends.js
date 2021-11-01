@@ -112,7 +112,7 @@ function LineChart(data, {
       .call(g => g.append("text")
           .attr("x", -marginLeft)
           .attr("y", 10)
-          .attr("fill", "currentColor")
+          .attr("fill", "red")
           .attr("text-anchor", "start")
           .text(yLabel));
 
@@ -139,8 +139,7 @@ function LineChart(data, {
       .attr("font-family", "monospace")
       .attr("font-size", 14)
       .attr("text-anchor", "middle")
-      .attr("y", -8)
-      .on("click", function(d) {d3.select(this).attr("r", 10).style("fill", "red")} );
+      .attr("y", -8);
 
   function pointermoved(event) {
     const [xm, ym] = d3.pointer(event);
