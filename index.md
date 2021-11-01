@@ -16,9 +16,9 @@ body_js:
  - "/assets/js/network.js"
  - "https://platform.twitter.com/widgets.js"
 ---
-
+    
 <p class="text-center">
-<a href="/visualisation/communities">Communities in this network</a> <a href="/visualisation/communities">Live trending hashtags</a>
+<a href="/visualisation/communities">Communities in this network</a>  &nbsp &nbsp &nbsp <a href="/visualisation/trends">Live trending hashtags</a>
 </p>
 
 <div class="controls small">
