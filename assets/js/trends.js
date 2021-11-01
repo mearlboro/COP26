@@ -87,6 +87,7 @@ function LineChart(data, {
       .on("pointerenter", pointerentered)
       .on("pointermove", pointermoved)
       .on("pointerleave", pointerleft)
+      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)))
       .on("touchstart", event => event.preventDefault());
 
   // An optional Voronoi display (for fun).
@@ -105,7 +106,6 @@ function LineChart(data, {
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(yAxis)
-      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)))
       .call(g => g.select(".domain").remove())
       .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
           .attr("x2", width - marginLeft - marginRight)
