@@ -111,5 +111,3 @@ chart = BubbleChart(files, {
   link: d => `https://twitter.com/${d.name.slice(1)}`,
   width: 1152
 })
-
-BubbleChart(files);
