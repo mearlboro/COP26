@@ -11,7 +11,7 @@ body_js:
 
 <p class="text-center"> See which Twitter accounts are the top COP26 influencers. </p>
 
-<svg></svg>
+<svg id="chart"></svg>
 
 ### About this visualisation
 
