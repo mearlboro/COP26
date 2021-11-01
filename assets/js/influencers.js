@@ -1,7 +1,7 @@
 var flare = live_1500;
 var files = flare['nodes'].slice(1,50);
 
-var chart = BubbleChart(files, {
+chart = BubbleChart(files, {
   label: d => d.name,
   value: d => d.value,
   group: d => d.group,
