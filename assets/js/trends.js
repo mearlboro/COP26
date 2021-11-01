@@ -69,7 +69,8 @@ function LineChart(data, {
   const yAxis = d3.axisLeft(yScale).ticks(height / 60, yFormat);
 
   // Compute titles.
-  const T = title === undefined ? Z : title === null ? null : d3.map(data, title);
+  const T = title === undefined ? Z : title === null ? null : d3.map(data, title)
+      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)));
 
   // Construct a line generator.
   const line = d3.line()
@@ -87,7 +88,6 @@ function LineChart(data, {
       .on("pointerenter", pointerentered)
       .on("pointermove", pointermoved)
       .on("pointerleave", pointerleft)
-      .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + d.hashtag.slice(1)))
       .on("touchstart", event => event.preventDefault());
 
   // An optional Voronoi display (for fun).
