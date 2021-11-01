@@ -1,7 +1,6 @@
 ---
 layout: home
 title: Top Influencers
-permalink: /visualisation/influencers
 head_js:
  - "https://d3js.org/d3.v6.min.js"
 body_js:
