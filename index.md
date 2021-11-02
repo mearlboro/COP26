@@ -16,13 +16,13 @@ body_js:
  - "/assets/js/network.js"
  - "https://platform.twitter.com/widgets.js"
 ---
-    
+
 <p class="text-center">
-Network of publicly visible retweet interactions related to COP26. Zoom out to see full structure and look out for fringe communities. 
+Network of publicly visible retweet interactions related to COP26. Zoom out to see full structure and look out for fringe communities.
 </p>
 
 <p class="text-center">
-<a href="/visualisation/communities">Network Communities</a>  &nbsp;&nbsp;&nbsp; <a href="/visualisation/trends">Live Trends</a>
+<a href="/visualisation/influencers">Top Influencers</a> &nbsp;&nbsp;&nbsp; <a href="/visualisation/communities">Network Communities</a>  &nbsp;&nbsp;&nbsp; <a href="/visualisation/trends">Live Trends</a>
 </p>
 
 <div class="controls small">

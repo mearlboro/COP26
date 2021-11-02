@@ -51,32 +51,40 @@ var ClosePanel = (function() {
 });
 
 var OpenPanel = (function(handle, size, live) {
-    var user = handle.slice(1)
-    document.getElementById('panel_title').innerHTML = handle;
+    var w = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
-    // add embedded twitter feed for the selected user
-    var panel = document.getElementById('panel_content');
-    panel.innerHTML = '<a class="twitter-timeline" href="https://twitter.com/' + user + '"></a>';
-    var h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 370;
-    twttr.widgets.createTimeline({
-            sourceType: "profile",
-            screenName: user
-        }, panel, {
-            dnt: true,
-            height: h,
-            chrome: 'transparent'
-        }
-    );
+    if (w > 600) {
+        var user = handle.slice(1)
+        document.getElementById('panel_title').innerHTML = handle;
 
-    // add most retweeted by user and who retweeted user most
-    panel.innerHTML += '<p>Top users retweeted by this account:<br/>';
-    var links = GetMostRetweeted(handle, size, live);
-    links[0].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
-    panel.innerHTML += '</p><p>Top users who retweeted this account:<br/>';
-    links[1].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
-    panel.innerHTML += '</p>';
+        // add embedded twitter feed for the selected user
+        var panel = document.getElementById('panel_content');
+        panel.innerHTML = '<a class="twitter-timeline" href="https://twitter.com/' + user + '"></a>';
+        var h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 370;
+        twttr.widgets.createTimeline({
+                sourceType: "profile",
+                screenName: user
+            }, panel, {
+                dnt: true,
+                height: h,
+                chrome: 'transparent'
+            }
+        );
 
-    document.getElementById('panel').classList.remove('hide');
+        // add most retweeted by user and who retweeted user most
+        panel.innerHTML += '<p>Top users retweeted by this account:<br/>';
+        var links = GetMostRetweeted(handle, size, live);
+        links[0].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
+        panel.innerHTML += '</p><p>Top users who retweeted this account:<br/>';
+        links[1].forEach(l => panel.innerHTML += GetTwitterLink(l['name']) + ' (' + l['val'] + ' retweets)<br/>');
+        panel.innerHTML += '</p>';
+
+        document.getElementById('panel').classList.remove('hide');
+    }
+    else {
+        window.open("https://twitter.com/" + handle.slice(1));
+    }
+
 });
 
 
