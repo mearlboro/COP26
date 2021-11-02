@@ -16,9 +16,9 @@ body_js:
  - "/assets/js/network.js"
  - "https://platform.twitter.com/widgets.js"
 ---
-    
+
 <p class="text-center">
-Network of publicly visible retweet interactions related to COP26. Zoom out to see full structure and look out for fringe communities. 
+Network of publicly visible retweet interactions related to COP26. Zoom out to see full structure and look out for fringe communities.
 </p>
 
 <p class="text-center">

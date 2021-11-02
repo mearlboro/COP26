@@ -168,6 +168,11 @@ img {
   padding: 10px 5px;
 }
 
+svg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #panel {
   z-index: 100;
   position: absolute;
@@ -218,6 +223,7 @@ div.tooltip {
 }
 .label {
   font-family: monospace;
+  text-decoration: none;
   display: inline;
   text-anchor: middle;
   font-size: 14px;
@@ -269,5 +275,15 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+
+/* Influencers page */
+svg a { text-decoration: none; }
+svg tspan {
+  font-family: monospace;
+  text-decoration: none;
+  text-anchor: middle;
+  font-size: 12px;
 }
 
