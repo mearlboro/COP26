@@ -22,7 +22,7 @@ Network of publicly visible retweet interactions related to COP26. Zoom out to s
 </p>
 
 <p class="text-center">
-<a href="/visualisation/communities">Network Communities</a>  &nbsp;&nbsp;&nbsp; <a href="/visualisation/trends">Live Trends</a>
+<a href="/visualisation/influencers">Top Influencers</a> &nbsp;&nbsp;&nbsp; <a href="/visualisation/communities">Network Communities</a>  &nbsp;&nbsp;&nbsp; <a href="/visualisation/trends">Live Trends</a>
 </p>
 
 <div class="controls small">
