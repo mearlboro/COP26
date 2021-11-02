@@ -2,7 +2,7 @@
 
 var Draw = (function() {
 
-  var data = live_150;
+  var data = live_1500;
   data = data['nodes'].slice(1,50);
   for (var i = 0; i < data.length; i++) {
     data[i]['rank'] = i + 1;
@@ -13,7 +13,7 @@ var Draw = (function() {
 
   var chart = BubbleChart(data, {
     label: d => d.name,
-    value: d => d.value,
+    value: d => Math.sqrt(d.value),
     group: d => d.group,
     title: d => d.name,
     link: d => `https://twitter.com/${d.name.slice(1)}`,

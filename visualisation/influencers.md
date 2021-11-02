@@ -6,7 +6,7 @@ head_js:
  - "https://d3js.org/d3.v6.min.js"
  - "https://d3js.org/d3-scale-chromatic.v1.min.js"
 body_js:
- - "/assets/data/livegraph_150.js"
+ - "/assets/data/livegraph_1500.js"
  - "/assets/js/influencers.js"
 ---
 
