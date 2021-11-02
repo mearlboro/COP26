@@ -286,4 +286,10 @@ svg tspan {
   text-anchor: middle;
   font-size: 12px;
 }
+@media screen and (max-width: 599px) {
+  svg tspan {
+    font-size: 8px;
+  }
+}
+
 
