@@ -142,7 +142,8 @@ var Draw = (function() {
         .attr("font-family", "monospace")
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
-        .attr("y", -8);
+        .attr("y", -8)
+        .attr("target","_blank", function(d) { return 'https://twitter.com/search?q=cop26%20%23'; })
 
     function pointermoved(event) {
       const [xm, ym] = d3.pointer(event);
