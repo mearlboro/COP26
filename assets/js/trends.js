@@ -139,12 +139,11 @@ var Draw = (function() {
         .attr("font-family", "monospace")
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
-        .attr("y", -8)
-        .text((d) => d.text)
-        .on("click", d => window.open('https://twitter.com/search?q=cop26%20%23' + dot.attr("text")));
+        .attr("y", -8);
 
     dot.append("circle")
-        .attr("r", 3.5);
+        .attr("r", 3.5)
+        .on("click", window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i])));
 
     function pointermoved(event) {
       const [xm, ym] = d3.pointer(event);
