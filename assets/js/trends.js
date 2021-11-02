@@ -143,7 +143,7 @@ var Draw = (function() {
 
     dot.append("circle")
         .attr("r", 3.5)
-        .on("click", (T,i) => window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i])));
+        .on("click", (T,i) => window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i])[0]));
 
     function pointermoved(event) {
       const [xm, ym] = d3.pointer(event);
