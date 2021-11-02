@@ -142,14 +142,14 @@ var Draw = (function() {
         .attr("y", -8);
 
     dot.append("circle")
-        .attr("r", 3.5);
+        .attr("r", 3.5)
+        .on("click", (T,i) => window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i])));
 
     function pointermoved(event) {
       const [xm, ym] = d3.pointer(event);
       const i = d3.least(I, i => Math.hypot(xScale(X[i]) - xm, yScale(Y[i]) - ym)); // closest point
       path.attr("stroke", ([z]) => Z[i] === z ? null : "#ddd").filter(([z]) => Z[i] === z).raise();
       dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
-      dot.on("click", window.open('https://twitter.com/search?q=cop26%20%23' + dot.select("text").text(T[i])))
       if (T) dot.select("text").text(T[i]);
       svg.property("value", O[i]).dispatch("input", {bubbles: true});
     }
