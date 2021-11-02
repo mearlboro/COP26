@@ -288,7 +288,7 @@ svg tspan {
 }
 @media screen and (max-width: 599px) {
   svg tspan {
-    font-size: 8px;
+    font-size: 6.5px;
   }
 }
 

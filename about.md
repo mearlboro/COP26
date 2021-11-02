@@ -21,7 +21,7 @@ We are a group of computational social scientists, physicists and climate scient
 
 Prior to working on data science related to climate change information, our group has contributed to pioneering work on the spreading of misinformation online ([article](https://www.pnas.org/content/113/3/554){:target="_blank"} / [media coverage](https://pnas.altmetric.com/details/4951559){:target="_blank"}), the Covid-19 infodemic ([article](https://doi.org/10.1038/s41598-020-73510-5){:target="_blank"} / [media coverage](https://nature.altmetric.com/details/91846881){:target="_blank"}), climate adaptation ([article](https://iopscience.iop.org/article/10.1088/1748-9326/ab304d){:target="_blank"}), and the formation of social norms ([article](https://www.science.org/doi/abs/10.1126/science.aas8827){:target="_blank"} / [media coverage](https://www.scientificamerican.com/article/the-25-revolution-how-big-does-a-minority-have-to-be-to-reshape-society/){:target="_blank"}).
 
-This project acknowledges support from the 100683EPID Project “Global Health Security Academic Research Coalition” SCH-00001-3391.
+This project acknowledges support from the 100683EPID Project “IRIS: Global Health Security Academic Research Coalition” SCH-00001-3391.
 
 <div class="flexi flexi-7">
 <div><img src="/assets/img/city-uni.jpg"></div>
