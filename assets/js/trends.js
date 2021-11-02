@@ -139,14 +139,12 @@ var Draw = (function() {
         .attr("r", 3.5);
 
     dot.append("text")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
         .attr("font-family", "monospace")
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
-        .attr("y", -8)
-      .selectAll("dot")
-      .data(d3.group(I, i => Z[i]))
-        .attr("xlink:href", function(d) {return 'https://twitter.com/search?q=cop26%20%23' + Z[i].hashtag})
-        .on("click", function(){ d3.select(this).attr("xlink:href");})
+        .attr("y", -8);
 
     function pointermoved(event) {
       const [xm, ym] = d3.pointer(event);
