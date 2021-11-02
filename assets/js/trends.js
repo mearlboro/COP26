@@ -143,8 +143,9 @@ var Draw = (function() {
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
         .attr("y", -8)
-        .attr("d", ([, I]) => d.hashtag[I])
-        .attr("xlink:href", function(d) {return 'https://twitter.com/search?q=cop26%20%23' + d.hashtag})
+      .selectAll("dot")
+      .data(d3.group(I, i => Z[i]))
+        .attr("xlink:href", function(d) {return 'https://twitter.com/search?q=cop26%20%23' + Z[i].hashtag})
         .on("click", function(){ d3.select(this).attr("xlink:href");})
 
     function pointermoved(event) {
