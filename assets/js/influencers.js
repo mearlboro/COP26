@@ -13,7 +13,7 @@ var Draw = (function() {
 
   var chart = BubbleChart(data, {
     label: d => d.name,
-    value: d => d.value,
+    value: d => Math.sqrt(d.value),
     group: d => d.group,
     title: d => d.name,
     link: d => `https://twitter.com/${d.name.slice(1)}`,
