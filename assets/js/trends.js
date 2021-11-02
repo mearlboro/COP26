@@ -143,6 +143,7 @@ var Draw = (function() {
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
         .attr("y", -8)
+        .attr("d", ([, I]) => d.hashtag[I])
         .attr("xlink:href", function(d) {return 'https://twitter.com/search?q=cop26%20%23' + d.hashtag})
         .on("click", function(){ d3.select(this).attr("xlink:href");})
 
