@@ -2,8 +2,8 @@
 
 var Draw = (function() {
 
-  var data = live_1500;
-  data = data['nodes'].slice(1,50);
+  var data = live_10000;
+  data = data['nodes'].slice(0,70);
   for (var i = 0; i < data.length; i++) {
     data[i]['rank'] = i + 1;
   }
