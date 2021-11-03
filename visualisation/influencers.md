@@ -6,11 +6,11 @@ head_js:
  - "https://d3js.org/d3.v6.min.js"
  - "https://d3js.org/d3-scale-chromatic.v1.min.js"
 body_js:
- - "/assets/data/livegraph_1500.js"
+ - "/assets/data/livegraph_10000.js"
  - "/assets/js/influencers.js"
 ---
 
-<p class="text-center"> The top 50 COP26 influencers in the last 5 days. Click on a bubble to see their twitter feed.</p>
+<p class="text-center"> The top 70 COP26 influencers in the last 5 days. Click on a bubble to see their twitter feed.</p>
 
 <svg></svg>
 
