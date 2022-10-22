@@ -1,2 +1,2 @@
 var last_updated = '2022-10-19 02:00'; 
-var live_150 = {"nodes": [{"id": 506806106, "name": "@NikolaCasule", "group": 1, "value": 0.6153846153846154}, {"id": 141009810, "name": "@imagine_garden", "group": 1, "value": 0.3846153846153846}], "links": [{"source": 141009810, "target": 506806106, "value": 10}]}
+var live_150 = {"nodes": [{"id": 506806106, "name": "@NikolaCasule", "group": 1, "value": 0.6153846153846154}, {"id": 141009810, "name": "@imagine_garden", "group": 1, "value": 0.3846153846153846}], "links": [{"source": 141009810, "target": 506806106, "value": 11}]}
