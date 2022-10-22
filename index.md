@@ -10,9 +10,9 @@ body_js:
  - "/assets/data/retweets_150.js"
  - "/assets/data/retweets_500.js"
  - "/assets/data/retweets_1500.js"
- - "/assets/data/livegraph_150.js"
- - "/assets/data/livegraph_500.js"
- - "/assets/data/livegraph_1500.js"
+ - "/assets/data/livegraph_150_cop27.js"
+ - "/assets/data/livegraph_500_cop27.js"
+ - "/assets/data/livegraph_1500_cop27.js"
  - "/assets/js/network.js"
  - "https://platform.twitter.com/widgets.js"
 ---
