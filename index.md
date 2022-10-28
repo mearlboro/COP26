@@ -5,7 +5,7 @@ title: Retweet Network
 head_js:
  - "https://d3js.org/d3.v4.min.js"
  - "https://d3js.org/d3-scale-chromatic.v1.min.js"
- - "https://unpkg.com/force-graph"
+ - "assets/js/force-graph.js"
 body_js:
  - "/assets/data/retweets_150_cop26.js"
  - "/assets/data/retweets_500_cop26.js"
